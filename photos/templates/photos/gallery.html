@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
+    crossorigin="anonymous">
+</head>
+<body class="m-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                      Categories
+                    </div>
+                    
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">All</li>
+                      {% for category in categories %}
+                      <li class="list-group-item">{{category.name}}</li>
+                    {% endfor %}
+                      
+            
+                        <a href="{% url 'addPhoto' %}" class="btn btn-dark btn-sm m-1">
+                          + Add Photo  
+                        </a>
+        
+                    </ul>
+                  </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    {% for photo in photos %}
+                    <div class="col-md-4">
+                        <div class="card my-2">
+                            <img src="{{photo.image.url}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <p>Category:{{photo.category.name}}</p>
+                              <div class="text-center">
+                                <a href="{% url 'photo' photo.id  %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <h3> No photo in here :/ </h3>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
