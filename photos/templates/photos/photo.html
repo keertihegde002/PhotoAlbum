@@ -7,17 +7,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
     crossorigin="anonymous">
+    <style>
+        .btn{
+            background-color: #CAC4CE;
+        }
+    </style>
 </head>
-<body class="m-5">
+<body style="background-color:#242038;" class="m-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
-                <a class="btn btn-dark my-1" href="{% url 'gallery' %}">
+                <a style="color:black;" class="btn btn-dark my-3" href="{% url 'gallery' %}">
                     Back
                 </a>
                 <div style="height: 90vh;">
-                    <img  src="{{photos.image.url}}">
-                    <p>{{photos.description}}</p>
+                    <img style="max-width:100%" src="{{photos.image.url}}">
+                    <br>
+                    <br>
+                    <p style="color: #F7ECE1">{{photos.description}}</p>
                 </div>
             </div>
         </div>
